@@ -1,4 +1,6 @@
 <?php
+require "DBConnect.php";
+
 class ContactManager
 {
     function findAll()
