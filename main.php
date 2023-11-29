@@ -30,3 +30,33 @@ class ContactManager
 $contacts = new ContactManager;
 
 var_dump($contacts->findAll());
+
+class Contact
+{
+
+    private $id;
+    private $name;
+    private $email;
+    private $phone;
+    function getId($id)
+    {
+        return $id;
+    }
+    function getName($name)
+    {
+        return $name;
+    }
+
+    function getEmail($email)
+    {
+        return $email;
+    }
+    function getPhone($phone)
+    {
+        return $phone;
+    }
+
+    function setName()
+    {
+    }
+}
