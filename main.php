@@ -1,33 +1,11 @@
 <?php
 
-require "DBConnect.php";
+require "Command.php";
 
-class Contact
-{
-
-    private $id;
-    private $name;
-    private $email;
-    private $phone;
-    function getId($id)
-    {
-        return $id;
+while (true) {
+    $line = readline("Entrez votre commande : ");
+    if ($line === "list") {
+        (new Command())->list();
     }
-    function getName($name)
-    {
-        return $name;
-    }
-
-    function getEmail($email)
-    {
-        return $email;
-    }
-    function getPhone($phone)
-    {
-        return $phone;
-    }
-
-    function setName()
-    {
-    }
+    echo "Vous avez saisi : $line\n";
 }
