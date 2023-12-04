@@ -3,11 +3,13 @@ class DBConnect
 {
     function getPDO()
     {
+        require 'config.php';
+
         try {
             $db = new PDO(
                 'mysql:host=localhost;dbname=projet_5;charset=utf8',
-                'root',
-                'root'
+                $log,
+                $pwd,
             );
             return $db;
         } catch (Exception $e) {

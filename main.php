@@ -34,6 +34,9 @@ while (true) {
         (new Command())->help();
     } else if ($line === "exit") {
         return;
+    } else {
+        echo "
+        Commande invalide ! Tapez help pour connaître les commandes fonctionnelles.\n";
     }
     echo "Vous avez saisi : $line\n";
 }
