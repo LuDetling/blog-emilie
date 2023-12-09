@@ -1,27 +1,31 @@
 <?php
 require "ContactManager.php";
 
-class Command extends ContactManager
+class Command
 {
-    function list()
+    public function list(): void
     {
-        $this->findAll();
+        $contactManager = new ContactManager();
+        $contactManager->findAll();
     }
 
-    function detail(int $id)
+    public function detail(int $id): void
     {
-        $this->findById($id);
+        $contactManager = new ContactManager();
+        $contactManager->findById($id);
     }
 
-    function create(string $name, string $email, int $phone)
+    public function create(string $name, string $email, int $phone): void
     {
-        $this->createContact($name, $email, $phone);
+        $contactManager = new ContactManager();
+        $contactManager->createContact($name, $email, $phone);
     }
-    function delete(int $id)
+    public  function delete(int $id): void
     {
-        $this->deleteContact($id);
+        $contactManager = new ContactManager();
+        $contactManager->deleteContact($id);
     }
-    function help()
+    public  function help(): void
     {
         echo "
 help : affiche cette aide

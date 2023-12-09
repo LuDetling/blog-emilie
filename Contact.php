@@ -3,10 +3,10 @@
 class Contact
 {
 
-    private $id;
-    private  $name;
-    private  $email;
-    private  $phone;
+    private int $id;
+    private  string $name;
+    private  string $email;
+    private  string $phone;
 
     public function getId(): ?int
     {
@@ -44,7 +44,7 @@ class Contact
         $this->phone = $phone;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return "
         Id: " . $this->id . "

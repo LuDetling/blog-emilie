@@ -2,7 +2,7 @@
 require "DBConnect.php";
 require "Contact.php";
 
-class ContactManager extends Contact
+class ContactManager
 {
     function findAll()
     {
@@ -30,7 +30,7 @@ class ContactManager extends Contact
         $sqlQuery = 'SELECT * FROM contact WHERE id = :id';
         $contactStatement = $dbconnect->getPDO()->prepare($sqlQuery);
         $contactStatement->execute(["id" => $id]);
-        while ($row = $contactStatement->fetch()) {
+        if ($row = $contactStatement->fetch()) {
             $contact = new Contact();
             $contact->setId($row["id"]);
             $contact->setName($row["name"]);
@@ -50,12 +50,12 @@ class ContactManager extends Contact
     function createContact(string $name, string $email, int $phone)
     {
         $dbconnect = new DBConnect();
+        $pdo = $dbconnect->getPDO();
         $sqlQuery = "INSERT INTO contact (name, email, phone) VALUES (?,?,?)";
-        $contactsSatement = $dbconnect->getPDO()->prepare($sqlQuery);
+        $contactsSatement = $pdo->prepare($sqlQuery);
         $contactsSatement->execute([$name, $email, $phone]);
-        // var_dump($dbconnect->getPDO()->lastInsertId());
-        // $id = $dbconnect->getPDO()->lastInsertId();
-        // $contact = $this->findById($id);
+        $id = $pdo->lastInsertId();
+        var_dump($id);
         echo "
         " . $name . " a été ajouté aux contacts\n";
         return;
@@ -64,7 +64,7 @@ class ContactManager extends Contact
     function deleteContact(int $id)
     {
         $db = new DBConnect();
-        $sql = "DELETE FROM contact WHERE id = " . $id;
+        $sql = "DELETE FROM contact WHERE id = :id";
         $name = $this->findById($id)->getName();
         $db->getPDO()->exec($sql);
         echo "
