@@ -53,7 +53,7 @@ $urlTri = "index.php?action=monitoring&tri="
             <tr>
                 <td><?= $article->getTitle() ?></td>
                 <td><?= $article->getView() ?></td>
-                <td><?= count($comments[$key]) ?></td>
+                <td><?= $article->getNbComments() ?></td>
                 <td><?= ucfirst(Utils::convertDateToFrenchFormat($article->getDateCreation())) ?></td>
             </tr>
         <?php }

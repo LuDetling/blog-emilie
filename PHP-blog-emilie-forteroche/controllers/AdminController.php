@@ -40,17 +40,10 @@ class AdminController
         $articleManager = new ArticleManager();
         $articles = $articleManager->getAllArticlesTri();
 
-        $commentManager = new CommentManager();
-        $comments = [];
-        foreach ($articles as $article) {
-            $comments[] = $commentManager->getAllCommentsByArticleId($article->getId());
-        }
-
         // On affiche la page d'monitoring.
         $view = new View("Monitoring");
         $view->render("monitoring", [
-            'articles' => $articles,
-            'comments' => $comments
+            'articles' => $articles
         ]);
     }
 

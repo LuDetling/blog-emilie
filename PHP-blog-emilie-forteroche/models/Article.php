@@ -10,6 +10,7 @@ class Article extends AbstractEntity
     private string $title = "";
     private string $content = "";
     private int $view;
+    private int $nbComments;
     private ?DateTime $dateCreation = null;
     private ?DateTime $dateUpdate = null;
 
@@ -29,6 +30,16 @@ class Article extends AbstractEntity
     public function getIdUser(): int
     {
         return $this->idUser;
+    }
+
+    public function getNbComments(): int
+    {
+        return $this->nbComments;
+    }
+
+    public function setNbComments(int $nbComments): void
+    {
+        $this->nbComments = $nbComments;
     }
 
     /**
