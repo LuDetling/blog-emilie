@@ -23,24 +23,27 @@ class ArticleManager extends AbstractEntityManager
 
     public function getAllArticlesTri(): array
     {
-        if (empty($_GET["tri"])) {
+        if (empty($_GET['tri'])) {
             $sql = "SELECT * FROM article";
         } else if ($_GET['tri'] == 'titleasc') {
-            $sql =  "SELECT title, view, date_creation, id FROM article ORDER BY title ASC";
+            $sql = "SELECT a.* FROM article a ORDER BY a.title ASC";
         } else if ($_GET['tri'] == 'titledesc') {
-            $sql =  "SELECT title, view, date_creation, id FROM article ORDER BY title DESC";
+            $sql = "SELECT a.* FROM article a ORDER BY a.title desc";
         } else if ($_GET['tri'] == 'viewasc') {
-            $sql =  "SELECT title, view, date_creation, id FROM article ORDER BY view ASC";
+            $sql = "SELECT a.*, COUNT(c.id_article) AS nb_comments FROM article a JOIN comment c WHERE a.id = c.id_article GROUP BY a.id ORDER BY a.view ASC";
         } else if ($_GET['tri'] == 'viewdesc') {
-            $sql =  "SELECT title, view, date_creation, id FROM article ORDER BY view DESC";
+            $sql = "SELECT a.*, COUNT(c.id_article) AS nb_comments FROM article a JOIN comment c WHERE a.id = c.id_article GROUP BY a.id ORDER BY a.view DESC";
         } else if ($_GET['tri'] == 'dateasc') {
-            $sql =  "SELECT title, view, date_creation, id FROM article ORDER BY date_creation ASC";
+            $sql = "SELECT a.*, COUNT(c.id_article) AS nb_comments FROM article a JOIN comment c WHERE a.id = c.id_article GROUP BY a.id ORDER BY a.date_creation ASC";
         } else if ($_GET['tri'] == 'datedesc') {
-            $sql =  "SELECT title, view, date_creation, id FROM article ORDER BY date_creation DESC";
+            $sql = "SELECT a.*, COUNT(c.id_article) AS nb_comments FROM article a JOIN comment c WHERE a.id = c.id_article GROUP BY a.id ORDER BY a.date_creation DESC";
+        } else if ($_GET['tri'] == 'commentasc') {
+            $sql = "SELECT a.*, COUNT(c.id_article) AS nb_comments FROM article a JOIN comment c WHERE a.id = c.id_article GROUP BY a.id ORDER BY nb_comments ASC";
+        } else if ($_GET['tri'] == 'commentdesc') {
+            $sql = "SELECT a.*, COUNT(c.id_article) AS nb_comments FROM article a JOIN comment c WHERE a.id = c.id_article GROUP BY a.id ORDER BY nb_comments DESC";
         } else {
             $sql = "SELECT * FROM article";
         }
-        //jointure avec nb de comments je pense
         $result = $this->db->query($sql);
         $articles = [];
 

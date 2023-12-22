@@ -1,4 +1,5 @@
 <?php
+$urlTri = "index.php?action=monitoring&tri="
 ?>
 
 <table class="content-monitoring" rules>
@@ -8,9 +9,9 @@
                 <a href="
                     <?php
                     if (empty($_GET["tri"]) || $_GET["tri"] != 'titleasc') {
-                        echo "index.php?action=monitoring&tri=titleasc";
+                        echo $urlTri . "titleasc";
                     } else {
-                        echo "index.php?action=monitoring&tri=titledesc";
+                        echo $urlTri . "titledesc";
                     }
                     ?>">title</a>
             </th>
@@ -18,20 +19,29 @@
                 <a href="
                     <?php
                     if (empty($_GET["tri"]) || $_GET["tri"] != 'viewasc') {
-                        echo "index.php?action=monitoring&tri=viewasc";
+                        echo $urlTri . "viewasc";
                     } else {
-                        echo "index.php?action=monitoring&tri=viewdesc";
+                        echo $urlTri . "viewdesc";
                     }
                     ?>">vues</a>
             </th>
-            <th>commentaires</th>
+            <th>
+                <a href="
+                    <?php
+                    if (empty($_GET["tri"]) || $_GET["tri"] != 'commentasc') {
+                        echo $urlTri . "commentasc";
+                    } else {
+                        echo $urlTri . "commentdesc";
+                    }
+                    ?>">commentaires</a>
+            </th>
             <th>
                 <a href="
                     <?php
                     if (empty($_GET["tri"]) || $_GET["tri"] != 'dateasc') {
-                        echo "index.php?action=monitoring&tri=dateasc";
+                        echo $urlTri . "dateasc";
                     } else {
-                        echo "index.php?action=monitoring&tri=datedesc";
+                        echo $urlTri . "datedesc";
                     }
                     ?>">date de publication</a>
             </th>

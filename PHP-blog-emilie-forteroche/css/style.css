@@ -173,6 +173,10 @@ main {
 .content-monitoring td,
 .content-monitoring th {
     border: 1px solid;
+}
+
+.content-monitoring th a {
+    display: block;
     padding: 0.5rem 1rem;
 }
 
@@ -187,6 +191,10 @@ main {
 .content-monitoring td:nth-child(3),
 .content-monitoring td:nth-child(2) {
     text-align: center;
+}
+
+.content-monitoring td {
+    padding: 0.5rem 1rem;
 }
 
 /* Affichage des articles */
