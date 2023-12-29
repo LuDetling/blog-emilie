@@ -301,6 +301,30 @@ a.info {
     color: var(--quoteColor);
 }
 
+.comments .deleteComment {
+    width: fit-content;
+    padding: 0;
+    background-color: transparent;
+    margin: 0;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+.comments .deleteComment button {
+    background-color: var(--titleColor);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    color: white;
+    border-color: var(--titleColor);
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.comments .deleteComment button:hover {
+    transform: scale(1.1);
+}
+
 /* On redéfinit certaines parties du "info" pour l'affichage dans les commentaires */
 .detailComment .info {
     margin: 5px 0 5px 0;
