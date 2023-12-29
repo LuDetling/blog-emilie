@@ -13,7 +13,7 @@ $urlTri = "index.php?action=monitoring&tri="
                     } else {
                         echo $urlTri . "titledesc";
                     }
-                    ?>">title</a>
+                    ?>">Titre</a>
             </th>
             <th>
                 <a href="
@@ -23,7 +23,7 @@ $urlTri = "index.php?action=monitoring&tri="
                     } else {
                         echo $urlTri . "viewdesc";
                     }
-                    ?>">vues</a>
+                    ?>">Vues</a>
             </th>
             <th>
                 <a href="
@@ -33,7 +33,7 @@ $urlTri = "index.php?action=monitoring&tri="
                     } else {
                         echo $urlTri . "commentdesc";
                     }
-                    ?>">commentaires</a>
+                    ?>">Commentaires</a>
             </th>
             <th>
                 <a href="
@@ -43,7 +43,7 @@ $urlTri = "index.php?action=monitoring&tri="
                     } else {
                         echo $urlTri . "datedesc";
                     }
-                    ?>">date de publication</a>
+                    ?>">Date de publication</a>
             </th>
         </tr>
     </thead>

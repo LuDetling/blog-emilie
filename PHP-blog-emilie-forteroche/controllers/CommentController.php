@@ -47,6 +47,9 @@ class CommentController
 
     public function deleteComment(): void
     {
+        // $adminController = new AdminController();
+        // $adminController->checkIfUserIsConnected();
+
         $idArticle = Utils::request("idArticle");
         $idComment = Utils::request("idComment");
 
