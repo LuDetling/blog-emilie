@@ -34,13 +34,15 @@
             echo '      <p class="content">' . Utils::format($comment->getContent()) . '</p>';
             echo '  </div>';
             // mettre un if connected
-            echo '  <form action="index.php" method="post" class="deleteComment">';
-            echo '      <input type="hidden" name="action" value="deleteComment">';
-            echo '      <input type="hidden" name="idArticle" value="' . $article->getId() . '">';
-            echo '      <input type="hidden" name="idComment" value="' . $comment->getId() . '">';
-            echo '      <button type="submit">X</button>';
-            echo '  </form>';
-            echo '</li>';
+            if (isset($_SESSION['user'])) {
+                echo '  <form action="index.php" method="post" class="deleteComment">';
+                echo '      <input type="hidden" name="action" value="deleteComment">';
+                echo '      <input type="hidden" name="idArticle" value="' . $article->getId() . '">';
+                echo '      <input type="hidden" name="idComment" value="' . $comment->getId() . '">';
+                echo '      <button type="submit">X</button>';
+                echo '  </form>';
+                echo '</li>';
+            }
         }
         echo '</ul>';
     }
