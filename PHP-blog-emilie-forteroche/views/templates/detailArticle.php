@@ -33,7 +33,6 @@
             echo '      <h3 class="info">Le ' . Utils::convertDateToFrenchFormat($comment->getDateCreation()) . ", " . Utils::format($comment->getPseudo()) . ' a écrit :</h3>';
             echo '      <p class="content">' . Utils::format($comment->getContent()) . '</p>';
             echo '  </div>';
-            // mettre un if connected
             if (isset($_SESSION['user'])) {
                 echo '  <form action="index.php" method="post" class="deleteComment">';
                 echo '      <input type="hidden" name="action" value="deleteComment">';
